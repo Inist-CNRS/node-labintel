@@ -1,5 +1,5 @@
 {
-  "name": "node-labintel",
+  "name": "labintel",
   "version": "1.0.0",
   "description": "API written in NodeJS to query CNRS L@bintel",
   "main": "index.js",

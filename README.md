@@ -5,14 +5,14 @@ API written in NodeJS to query CNRS L@bintel
 ## Installation
 
 ```shell
-npm install node-labintel
+npm install labintel
 ```
 
 
 ## Usage example
 
 ```javascript
-var labintel = require('node-labintel');
+var labintel = require('labintel');
 
 labintel.getUniteCNRS('UMR8622', function (err, data) {
   console.log(data);
