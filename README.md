@@ -20,7 +20,7 @@ labintel.getUniteCNRS('UMR8622', function (err, data) {
 ```
 
 Will display this JSON:
-```json
+```javascript
 {
     codeUnite: 'UMR8622',
     labintelUrl: 'https://web-ast.dsi.cnrs.fr/l3c/owa/structure.infos_admin?p_lab=UMR8622&p_origine_appel=un',
