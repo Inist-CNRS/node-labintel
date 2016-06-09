@@ -5,6 +5,7 @@ install: true
 before_install:
   - apt-get update
   - apt-get install -y wget
+  - wget "https://web-ast.dsi.cnrs.fr/l3c/owa/structure.infos_admin?p_lab=UMR3664&p_origine_appel=un"
   - npm install
 script:
   - npm test
