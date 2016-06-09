@@ -3,6 +3,8 @@ node_js:
   - "4.4.0"
 install: true
 before_install:
+  - apt-get update
+  - apt-get install -y wget
   - npm install
 script:
   - npm test
