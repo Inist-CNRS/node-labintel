@@ -1,5 +1,7 @@
 # node-labintel
 
+[![Build Status](https://travis-ci.org/Inist-CNRS/node-labintel.svg?branch=master)](https://travis-ci.org/Inist-CNRS/node-labintel)
+
 API written in NodeJS to query CNRS L@bintel
 
 ## Installation
