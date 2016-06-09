@@ -5,6 +5,8 @@ var assert = require('chai').assert
   , labintel = require('..');
 
 describe('the labintel nodejs API', function () {
+  
+  this.timeout(6000);
 
   // getUniteCNRS('UPS76', console.log);  
   // getUniteCNRS('UMR7648', console.log);  
