@@ -40,11 +40,36 @@
 
 'use strict';
 
-const spawn    = require('child_process').spawn;
-const encoding = require('encoding');
-const cheerio = require('cheerio');
+const spawn           = require('child_process').spawn;
+const encoding        = require('encoding');
+const cheerio         = require('cheerio');
+const FileCacheSimple = require('file-cache-simple');
+
+var labintelCache = new FileCacheSimple('.cache.json');
 
 module.exports.getUniteCNRS = function (codeUnite, cb) {
+  getUniteCNRSFromCache(codeUnite, function (err, cache) {
+    if (cache) {
+      return cb(null, cache);
+    } else {
+      return getUniteCNRSFromLabintel(codeUnite, cb);
+    }
+  });
+}
+
+function getUniteCNRSFromCache(codeUnite, cb) {
+  // And get some out 
+  labintelCache.get(codeUnite)
+    .then(function (value) {
+      if(!value || value === null) {
+        return cb(null, null);
+      } else {
+        return cb(null, value);        
+      }
+    });
+}
+
+function getUniteCNRSFromLabintel(codeUnite, cb) {
   let rawOuData = '';
   let rawErr    = '';
 
@@ -93,6 +118,8 @@ module.exports.getUniteCNRS = function (codeUnite, cb) {
 
         ouData[section] = values;
       });      
+
+      labintelCache.set(codeUnite, ouData);
 
       return cb(null, ouData);
     } else {
